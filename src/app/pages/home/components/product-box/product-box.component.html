@@ -1,0 +1,33 @@
+<mat-card [ngClass]="{ 'text-center': !fullWidthMode }">
+    <div [ngClass]="{flex: fullWidthMode}">
+      <img
+        class="mb-1 mx-auto h-[200px]"
+        [ngClass]="{ 'h-[200px]': !fullWidthMode, 'h-[360px]': fullWidthMode }"
+        src="https://i.pinimg.com/750x/18/9d/a2/189da225a2741503bfd9f20271bb4a7c.jpg"
+      />
+      <div
+        class="w-full"
+        [ngClass]="{ 'px-8 flex flex-col justify-between': fullWidthMode }"
+      >
+        <div>
+          <h5>Amigurumi</h5>
+          <p
+            class="truncate hover:whitespace-normal"
+            [ngClass]="{ truncate: !fullWidthMode }"
+          >
+            Luffy
+          </p>
+          <p *ngIf="fullWidthMode">
+            Luffy Amigurumi from One Piece
+          </p>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-red-400">{{ '50' | currency }}</span>
+          <button (click)="onAddToCart()">
+            <mat-icon class="text-gray-500">shopping_cart</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+  </mat-card>
