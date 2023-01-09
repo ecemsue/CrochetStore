@@ -1,3 +1,3 @@
 # Store 
 
-Das ist ein Beispelprojekt um agular zu lernen 
+Das ist ein Beispielprojekt um Angular zu lernen.
