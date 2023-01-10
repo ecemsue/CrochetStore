@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit, EventEmitter, Input, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { PRODUCTS } from 'src/app/mock-products';
 import { Product } from 'src/app/models/product.model';
 import { CartService } from 'src/app/services/cart.service';
 import { StoreService } from 'src/app/services/store.service';
@@ -18,7 +19,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   sort = 'desc';
   category: string | undefined;
   productsSubscription: Subscription | undefined;
-  product: Product[] = [];
+  product = PRODUCTS;
 
   constructor(
     private cartService: CartService,
