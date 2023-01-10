@@ -1,6 +1,6 @@
 <mat-drawer-container
   [autosize]="true"
-  class="min-h-full max-w-7xl mx-auto border-x"
+  class="bg-rose-200 min-h-full max-w-7xl mx-auto border-x"
 >
   <mat-drawer mode="side" opened class="p-6">
     <app-filters (showCategory)="onShowCategory($event)"></app-filters>
@@ -8,56 +8,19 @@
   <mat-drawer-content class="p-6">
     <app-products-header
       (columnsCountChange)="onColumnsCountChange($event)"
-      (itemsCountChange)="onItemsCountChange($event)"
-      (sortChange)="onSortChange($event)"
+     
     ></app-products-header>
     <mat-grid-list
-      *ngIf="product && product.length"
-      gutterSize="16"
+     gutterSize="16"
       [cols]="cols"
-      [rowHeight]="rowHeight"
-    >
-     
-        <mat-card [ngClass]="{ 'text-center': !fullWidthMode }">
-          <div [ngClass]="{flex: fullWidthMode}">
-            <ul class="product">
-            <li *ngFor="let product of product">
-            <img
-              class="mb-1 mx-auto h-[200px]"
-              [ngClass]="{ 'h-[200px]': !fullWidthMode, 'h-[360px]': fullWidthMode }"
-              [src]="product.image"
-            />
-            <div
-              class="w-full"
-              [ngClass]="{ 'px-8 flex flex-col justify-between': fullWidthMode }"
-            >
-              <div>
-                <h5>{{ product.category }}</h5>
-                <p
-                  class="truncate hover:whitespace-normal"
-                  [ngClass]="{ truncate: !fullWidthMode }"
-                >
-                {{ product.title }}
-                </p>
-                <p *ngIf="fullWidthMode">
-                  {{ product.description }}
-                </p>
-              </div>
-              <div class="flex justify-between">
-                <span class="text-red-400">{{ product.price | currency }}</span>
-                <button (click)=(onAddToCart)="onAddToCart($event)">
-                  <mat-icon class="text-gray-500">shopping_cart</mat-icon>
-                </button>
-              </div>
-            </div>
-          
-        </li>
-      </ul>
-          </div>
-        
-        </mat-card>
-        
-     
+      [rowHeight]="rowHeight">
+      <mat-grid-tile>
+        <app-product-box
+        (addToCart)="onAddToCart($event)"
+          class="w-full"
+          [fullWidthMode]="cols === 1"></app-product-box>
+      </mat-grid-tile>
+      
     </mat-grid-list>
   </mat-drawer-content>
 </mat-drawer-container>
