@@ -1,7 +1,9 @@
-<mat-card [ngClass]="{ 'text-center': !fullWidthMode }">
+<ul class="product">
+  <li *ngFor="let product of product">
+    <mat-card [ngClass]="{ 'text-center': !fullWidthMode }">
     <div [ngClass]="{flex: fullWidthMode}">
-      <ul class="product">
-      <li *ngFor="let product of product">
+      
+      
       <img
         class="mb-1 mx-auto h-[200px]"
         [ngClass]="{ 'h-[200px]': !fullWidthMode, 'h-[360px]': fullWidthMode }"
@@ -31,8 +33,9 @@
         </div>
       </div>
     
-  </li>
-</ul>
+
     </div>
   
   </mat-card>
+</li>
+</ul>
