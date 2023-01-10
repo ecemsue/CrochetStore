@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import { Product } from 'src/app/models/product.model';
 import { CartService } from 'src/app/services/cart.service';
 import { NgModule } from '@angular/core';
+import { PRODUCTS } from 'src/app/mock-products';
 
 const ROWS_HEIGHT: { [id: number]: number } = { 1: 400, 3: 335, 4: 350 };
 
@@ -16,6 +17,7 @@ export class HomeComponent implements OnInit{
   count = '12';
   sort = 'desc';
   category: string | undefined;
+  products= PRODUCTS;
   
 
   constructor(
