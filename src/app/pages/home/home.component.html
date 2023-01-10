@@ -10,20 +10,20 @@
       (columnsCountChange)="onColumnsCountChange($event)"
      
     ></app-products-header>
+    <h2> My Products</h2>
     <mat-grid-list
      gutterSize="16"
       [cols]="cols"
       [rowHeight]="rowHeight">
       <mat-grid-tile>
-        <div>
+        
+        <app-product-box  *ngFor="let product of product"
         (addToCart)="onAddToCart($event)"
           class="w-full"
-          [fullWidthMode]="cols === 1"
-          app-product-box
-          [product]="product"
-        </div>
+          [fullWidthMode]="cols === 1"></app-product-box>
+       
       </mat-grid-tile>
       
-    </mat-grid-list>
+    </mat-grid-list> 
   </mat-drawer-content>
 </mat-drawer-container>
